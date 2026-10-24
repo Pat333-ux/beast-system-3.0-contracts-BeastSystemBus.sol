@@ -1,0 +1,81 @@
+Description
+Master repository documentation for beast-system-3.0, detailing the full sovereign Private Government ecosystem architecture, multi-module smart contract integration via BeastSystemBus, API microservices, PostgreSQL database schemas, and GCP Cloud Run deployment workflows.
+
+Core Code
+Markdown
+# BEAST System 3.0 (`beast-system-3.0`)
+
+`beast-system-3.0` is the central orchestration framework and sovereign governance hub for the **New World Order Private Government DAO LLC**. It serves as the unified coordination layer uniting all seven specialized Web3 administrative pillars into a sovereign, trustless, containerized cloud infrastructure.
+
+---
+
+## 🏛 Sovereign Ecosystem Division Overview
+
+| Pillar Division | Repository | Core Role & Functionality |
+| :--- | :--- | :--- |
+| **Governance Hub** | `beast-system-3.0` | Central System Bus (`BeastSystemBus.sol`), DAO voting (`LucricityGovernor`), unified API gateway, and CI/CD orchestration. |
+| **Social Welfare** | `beast-family-service` | Community mediation circles, voluntary family support funds, and peer elder dispute resolution. |
+| **Judicial System** | `beast-legal-arbitration` | Escrow-backed dispute filing, voluntary private arbitration, and binding smart-contract verdicts. |
+| **Property Registry** | `beast-land-registry` | Immutable real estate deed registration, boundary IPFS hashing, and cryptographic title transfers. |
+| **Mutual Insurance** | `beast-micro-insurance` | Sovereign risk pooling, multi-assessor claim validation, and trustless automated payouts. |
+| **Identity & License** | `beast-credential-registry` | Decentralized credentials (VCs), skill attestations, and cross-module permissions mapping. |
+| **Commerce & Barter** | `beast-trade-exchange` | Peer-to-peer barter marketplace, multi-token price listings, and direct escrow trade settlements. |
+
+---
+
+## 🛠 System Architecture
+
+```text
+beast-system-3.0/
+├── contracts/               # Core governance & integration smart contracts
+│   ├── LucricityToken.sol   # Ecosystem governance token (LUCR)
+│   ├── LucricityGovernor.sol# Multi-sig DAO voting & proposal contract
+│   └── BeastSystemBus.sol   # Cross-contract credential & permission verifier
+├── backend/                 # API Gateway & Cloud SQL synchronizer
+│   ├── db/
+│   │   └── schema.sql       # Relational PostgreSQL database tables
+│   ├── src/
+│   │   ├── routes/          # Express API endpoints (/governance, /credentials, /trade)
+│   │   ├── services/        # On-chain System Bus WebSocket listener
+│   │   └── server.js        # Serverless Node.js entry point
+│   └── Dockerfile           # Optimized Cloud Run container spec
+├── frontend/                # Unified Web3 Next.js App Router gateway
+│   └── src/app/             # Dashboard, SSO wallet connector, and module routes
+├── .github/workflows/       # Automated GCP GitHub Actions CI/CD deployment pipeline
+└── README.md                # System documentation
+🚦 Quickstart & Deployment
+1. Local Development Setup
+Bash
+# Clone the repository
+git clone [https://github.com/PAT333-UX/beast-system-3.0.git](https://github.com/PAT333-UX/beast-system-3.0.git)
+cd beast-system-3.0
+
+# Install & Run Backend Express API
+cd backend
+npm install
+npm run dev
+
+# Install & Run Frontend Next.js Gateway
+cd ../frontend
+npm install
+npm run dev
+2. Environment Variables (backend/.env)
+Code snippet
+PORT=8080
+DATABASE_URL=postgresql://user:password@localhost:5432/beast_db
+SEPOLIA_RPC_URL=[https://rpc.sepolia.org](https://rpc.sepolia.org)
+SYSTEM_BUS_CONTRACT_ADDRESS=0x0000000000000000000000000000000000000000
+3. Automated Deployment to GCP Cloud Run
+Deployments are fully automated via GitHub Actions on main branch push using .github/workflows/deploy.yml.
+
+Required GitHub Repository Secrets:
+
+GCP_PROJECT_ID
+
+GCP_SA_KEY
+
+CLOUD_SQL_CONNECTION_NAME
+
+DB_PASSWORD
+
+PRIVATE_KEY
